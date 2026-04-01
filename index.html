@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FAFDF7">
+<meta name="description" content="Most bariatric practices spend $15K–$30K/month on marketing with no clean line to surgical volume. That's a solvable problem.">
+<title>Metabolic Offices — Marketing ROI for Bariatric Practices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1A4D2E;
+    --forest-mid: #2D6A42;
+    --forest-light: #3D8B5A;
+    --forest-pale: rgba(26, 77, 46, 0.06);
+    --forest-border: rgba(26, 77, 46, 0.15);
+    --forest-glow: rgba(26, 77, 46, 0.04);
+
+    --bg: #FAFDF7;
+    --bg-alt: #F3F7EE;
+    --card: #FFFFFF;
+    --ink: #1A2E1A;
+    --body: #3D4F3D;
+    --muted: #6B7F6B;
+    --faint: #99AA99;
+    --rule: #D8E4D0;
+    --rule-light: #E8F0E0;
+
+    --red: #B84233;
+    --red-bg: rgba(184, 66, 51, 0.06);
+    --red-border: rgba(184, 66, 51, 0.18);
+
+    --font-heading: 'Lexend', sans-serif;
+    --font-body: 'Source Sans 3', -apple-system, sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --max-w: 1020px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--body);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--forest); text-decoration: none; touch-action: manipulation; transition: color 0.2s ease; }
+  a:hover { color: var(--forest-mid); }
+  a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; border-radius: 2px; }
+
+  .skip-link {
+    position: absolute; top: -100px; left: 16px;
+    background: var(--forest); color: white;
+    padding: 8px 16px; border-radius: 0 0 6px 6px;
+    font-size: 14px; font-family: var(--font-body);
+    z-index: 50; transition: top 0.2s var(--ease-out);
+  }
+  .skip-link:focus-visible { top: 0; }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+    padding: 0 32px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .nav.scrolled {
+    background: rgba(250, 253, 247, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--rule);
+  }
+  .nav-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--font-heading);
+    font-size: 16px; font-weight: 600;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-mark {
+    width: 28px; height: 28px;
+    background: var(--forest);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-mark svg { width: 14px; height: 14px; }
+  .nav-email {
+    font-family: var(--font-body);
+    font-size: 13px; color: var(--muted);
+    cursor: pointer;
+  }
+  .nav-email:hover { color: var(--forest); }
+
+  /* ============ HERO ============ */
+  .hero {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 140px 32px 80px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-content {
+    opacity: 0; animation: fadeUp 0.8s var(--ease-out) 0.15s forwards;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--forest-mid);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .hero h1 .dollar {
+    color: var(--forest);
+  }
+  .hero-sub {
+    font-size: 18px; line-height: 1.7;
+    color: var(--body);
+    max-width: 520px;
+  }
+  .hero-stat-card {
+    background: var(--forest);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0; animation: fadeUp 0.8s var(--ease-out) 0.35s forwards;
+  }
+  .hero-stat-card::before {
+    content: '';
+    position: absolute; top: -40%; right: -30%;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-stat-label {
+    font-family: var(--font-heading);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+  .hero-stat-number {
+    font-family: var(--font-heading);
+    font-size: 56px; font-weight: 700;
+    color: white;
+    line-height: 1;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-stat-range {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 24px;
+  }
+  .hero-stat-divider {
+    width: 40px; height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 0 auto 20px;
+  }
+  .hero-stat-quote {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 88px 32px;
+  }
+  .section-alt { background: var(--bg-alt); }
+  .section-label {
+    font-family: var(--font-heading);
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--forest-mid);
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 3.2vw, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    margin-bottom: 28px;
+    max-width: 560px;
+    text-wrap: balance;
+  }
+  .section p {
+    font-size: 17px; line-height: 1.78;
+    color: var(--body);
+    margin-bottom: 20px;
+    max-width: 660px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+  .section strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ SCENARIO CARDS ============ */
+  .scenario-stack {
+    display: flex; flex-direction: column;
+    gap: 20px;
+    margin: 40px 0;
+  }
+  .scenario {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    align-items: start;
+    transition: border-color 0.25s ease;
+  }
+  .scenario:hover { border-color: var(--forest-border); }
+  .scenario-meta {
+    border-right: 1px solid var(--rule-light);
+    padding-right: 24px;
+  }
+  .scenario-num {
+    font-family: var(--font-heading);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--forest-mid);
+    margin-bottom: 10px;
+  }
+  .scenario-title {
+    font-family: var(--font-heading);
+    font-size: 17px; font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .scenario-body p {
+    font-size: 16px; line-height: 1.72;
+    color: var(--body);
+    margin: 0; max-width: none;
+  }
+
+  /* ============ WASTE CALLOUT ============ */
+  .waste-callout {
+    background: var(--red-bg);
+    border: 1px solid var(--red-border);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .waste-item {}
+  .waste-label {
+    font-family: var(--font-heading);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+  .waste-number {
+    font-family: var(--font-heading);
+    font-size: 36px; font-weight: 700;
+    color: var(--red);
+    line-height: 1.1;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .waste-detail {
+    font-size: 14px; color: var(--muted);
+  }
+
+  /* ============ SOLUTION CARDS ============ */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+  }
+  .solution-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .solution-card:hover {
+    border-color: var(--forest-border);
+    box-shadow: 0 4px 20px var(--forest-glow);
+  }
+  .solution-icon {
+    width: 40px; height: 40px;
+    background: var(--forest-pale);
+    border: 1px solid var(--forest-border);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .solution-icon svg { width: 20px; height: 20px; color: var(--forest); }
+  .solution-card h3 {
+    font-family: var(--font-heading);
+    font-size: 16px; font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .solution-card p {
+    font-size: 15px; line-height: 1.7;
+    color: var(--muted);
+    margin: 0; max-width: none;
+  }
+
+  /* ============ CTA ============ */
+  .cta-section {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 0 32px 88px;
+  }
+  .cta-inner {
+    background: var(--forest);
+    border-radius: 16px;
+    padding: 52px 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner::before {
+    content: '';
+    position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner p {
+    font-size: 18px; line-height: 1.65;
+    color: rgba(255,255,255,0.85);
+    max-width: 480px;
+    margin: 0;
+    position: relative; z-index: 1;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 15px; font-weight: 600;
+    color: var(--forest);
+    background: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative; z-index: 1;
+  }
+  .cta-btn:hover { background: var(--bg); transform: translateY(-1px); color: var(--forest); }
+  .cta-btn:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+  .cta-btn svg { width: 16px; height: 16px; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    border-top: 1px solid var(--rule);
+    padding: 28px 32px;
+    text-align: center;
+  }
+  .footer span {
+    font-family: var(--font-body);
+    font-size: 13px; color: var(--faint);
+  }
+
+  /* ============ REVEAL ============ */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stat-card { max-width: 340px; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .scenario { grid-template-columns: 1fr; gap: 12px; }
+    .scenario-meta { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule-light); padding-bottom: 12px; }
+    .waste-callout { grid-template-columns: 1fr; gap: 24px; }
+    .cta-inner { grid-template-columns: 1fr; text-align: center; }
+    .cta-btn { justify-content: center; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 120px 24px 60px; }
+    .section { padding: 64px 24px; }
+    .cta-section { padding: 0 24px 64px; }
+    .cta-inner { padding: 40px 28px; }
+    .nav { padding: 0 24px; }
+    .nav-email { display: none; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
+    .hero-stat-number { font-size: 44px; }
+    .cta-btn { width: 100%; }
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/>
+        </svg>
+      </div>
+      Metabolic Offices
+    </div>
+    <a href="mailto:keegan@metabolicoffices.com" class="nav-email" aria-label="Email Metabolic Offices">keegan@metabolicoffices.com</a>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Practice Marketing ROI</p>
+      <h1 id="hero-heading"><span class="dollar">$15,000 to $30,000</span> a&nbsp;month.</h1>
+      <p class="hero-sub">That&rsquo;s what most bariatric practices spend on marketing. Ask them what it&rsquo;s producing, and you&rsquo;ll get the same answer: &ldquo;We think it&rsquo;s working.&rdquo; The gap between marketing spend and measurable surgical outcomes is the most expensive blind spot in bariatric practice&nbsp;operations.</p>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hero-stat-label">Average monthly spend</div>
+      <div class="hero-stat-number">$22K</div>
+      <div class="hero-stat-range">range: $15K&ndash;$30K/month</div>
+      <div class="hero-stat-divider" aria-hidden="true"></div>
+      <div class="hero-stat-quote">&ldquo;We think it&rsquo;s working.&rdquo;</div>
+    </div>
+  </section>
+
+  <!-- THE SPENDING PROBLEM -->
+  <div class="section-alt">
+    <section class="section reveal" aria-labelledby="spending-heading">
+      <p class="section-label">Where the Money Goes</p>
+      <h2 id="spending-heading">The channel list keeps growing. Attribution keeps&nbsp;shrinking.</h2>
+
+      <p>Google Ads. Meta campaigns. TikTok content. Seminar marketing. Referral development programs. SEO retainers. Patient engagement platforms. Every year there&rsquo;s a new channel that promises better reach, and every year the total spend creeps&nbsp;up.</p>
+
+      <p>Meanwhile, cost-per-lead has climbed steadily. Five years ago, a bariatric practice could generate a qualified lead for $40 to $60. Today, in most markets, that number is $120 to $200&nbsp;&mdash;&nbsp;and&nbsp;climbing.</p>
+
+      <p>But the spend isn&rsquo;t the real problem. Practices can afford $20,000 a month on marketing if they know it&rsquo;s producing $200,000 in surgical revenue. The problem is that most practices have <strong>no idea whether that&rsquo;s the case</strong>&nbsp;&mdash;&nbsp;because nothing in their current system connects marketing spend to surgical&nbsp;outcomes.</p>
+
+      <p>The CRM tracks leads. The scheduler tracks consults. The EHR tracks encounters. The billing system tracks revenue. But no single view connects the chain: this patient came from this campaign, attended this seminar, scheduled this consult, completed pre-op, had surgery, and generated this much revenue. Without that chain, every marketing decision is based on partial data and gut&nbsp;instinct.</p>
+    </section>
+  </div>
+
+  <!-- THE ATTRIBUTION GAP -->
+  <section class="section reveal" aria-labelledby="gap-heading">
+    <p class="section-label">The Attribution Gap</p>
+    <h2 id="gap-heading">Three ways the blind spot shows&nbsp;up</h2>
+
+    <div class="scenario-stack">
+      <article class="scenario">
+        <div class="scenario-meta">
+          <div class="scenario-num">Scenario 01</div>
+          <div class="scenario-title">The seminar that &ldquo;felt successful&rdquo;</div>
+        </div>
+        <div class="scenario-body">
+          <p>The practice held a weight loss seminar last quarter. Forty-five people attended. It felt like a win. But trace the outcomes: 28 of those attendees were already in the system. Of the 17 genuinely new leads, 9 scheduled a consult, 4 made it through pre-op, and 2 had surgery. Total cost of the seminar&nbsp;&mdash;&nbsp;venue, food, staff time, promotion&nbsp;&mdash;&nbsp;was $6,200. That&rsquo;s <strong>$3,100 per surgery</strong> from a channel the practice considered one of its best&nbsp;performers.</p>
+        </div>
+      </article>
+      <article class="scenario">
+        <div class="scenario-meta">
+          <div class="scenario-num">Scenario 02</div>
+          <div class="scenario-title">The campaign nobody audited</div>
+        </div>
+        <div class="scenario-body">
+          <p>Google Ads has been running for eight months. The agency sends a monthly report showing impressions, clicks, and &ldquo;conversions&rdquo;&nbsp;&mdash;&nbsp;which means form submissions. The report looks healthy: 340 conversions last quarter. But how many of those became consults? How many became surgeries? Nobody knows, because the agency&rsquo;s dashboard and the practice&rsquo;s scheduling system don&rsquo;t share data. The practice is paying <strong>$4,500 a month</strong> for a campaign that might be producing 30 surgeries a quarter or 3. They genuinely can&rsquo;t&nbsp;tell.</p>
+        </div>
+      </article>
+      <article class="scenario">
+        <div class="scenario-meta">
+          <div class="scenario-num">Scenario 03</div>
+          <div class="scenario-title">The platform nobody uses</div>
+        </div>
+        <div class="scenario-body">
+          <p>Eighteen months ago, the practice signed up for a patient engagement platform at $3,800 a month. It was supposed to automate lead nurture and improve conversion rates. It&rsquo;s still running. But nobody on the team has logged in for four months. Open rates are 11 percent. Click rates are under 1 percent. The platform isn&rsquo;t broken&nbsp;&mdash;&nbsp;it was just never configured to match the actual patient journey. That&rsquo;s <strong>$68,400 over 18 months</strong> on a tool that&rsquo;s essentially talking to&nbsp;itself.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- THE MATH -->
+  <div class="section-alt">
+    <section class="section reveal" aria-labelledby="math-heading">
+      <p class="section-label">The Math</p>
+      <h2 id="math-heading">Waste is only half the&nbsp;cost</h2>
+
+      <div class="waste-callout">
+        <div class="waste-item">
+          <div class="waste-label">At $20K/month spend</div>
+          <div class="waste-number">$48K</div>
+          <div class="waste-detail">wasted per year at 20% inefficiency</div>
+        </div>
+        <div class="waste-item">
+          <div class="waste-label">At $30K/month spend</div>
+          <div class="waste-number">$72K</div>
+          <div class="waste-detail">wasted per year at 20% inefficiency</div>
+        </div>
+      </div>
+
+      <p>Even a conservative estimate of 20 percent waste means $48,000 to $72,000 per year being spent on channels, campaigns, or tools that aren&rsquo;t producing&nbsp;surgeries.</p>
+
+      <p>But waste is only half the cost. The other half is missed opportunity&nbsp;&mdash;&nbsp;the inability to identify what <strong>is</strong> working and double down on it. A practice that can see exactly which campaigns produce the highest consult-to-surgery conversion rate can reallocate spend in real time. A practice flying blind&nbsp;can&rsquo;t.</p>
+    </section>
+  </div>
+
+  <!-- WHAT MEASUREMENT LOOKS LIKE -->
+  <section class="section reveal" aria-labelledby="solution-heading">
+    <p class="section-label">Closing the Loop</p>
+    <h2 id="solution-heading">What measurement actually looks&nbsp;like</h2>
+
+    <p>The practices that have solved this aren&rsquo;t using more sophisticated marketing. They&rsquo;re not spending more money. They&rsquo;ve done one thing differently: they&rsquo;ve connected the data chain from first click to completed&nbsp;surgery.</p>
+
+    <div class="solution-grid">
+      <article class="solution-card">
+        <div class="solution-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <h3>Lead-to-surgery attribution</h3>
+        <p>Every patient is tagged to their source&nbsp;&mdash;&nbsp;not just &ldquo;Google&rdquo; but which campaign, which keyword, which landing page. That tag follows them through consult, pre-op, surgery, and billing. When the quarterly review happens, the practice asks &ldquo;which campaigns produced surgeries?&rdquo; not &ldquo;how did marketing&nbsp;do?&rdquo;</p>
+      </article>
+      <article class="solution-card">
+        <div class="solution-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h3>Cost-per-surgery, not cost-per-lead</h3>
+        <p>Cost-per-lead is a vanity metric. A $50 lead that never schedules a consult is infinitely more expensive than a $300 lead that converts to a $20,000 surgery. The practices that are winning have stopped optimizing for lead volume and started optimizing for the metric that actually matters: cost per patient who reaches the&nbsp;OR.</p>
+      </article>
+      <article class="solution-card">
+        <div class="solution-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Kill decisions in weeks, not quarters</h3>
+        <p>When a campaign isn&rsquo;t producing conversions that move through the funnel, the data shows it within 30 to 60 days&nbsp;&mdash;&nbsp;not 6 months. Underperforming spend gets reallocated while it&rsquo;s still recoverable, not after $30,000 has evaporated into a channel that looked good on the agency&rsquo;s dashboard but produced two&nbsp;surgeries.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section reveal" aria-labelledby="cta-heading">
+    <h2 id="cta-heading" class="sr-only">Get in Touch</h2>
+    <div class="cta-inner">
+      <p>If your practice is spending five figures a month on marketing without a clean line from ad spend to surgical volume, that&rsquo;s not a marketing problem. It&rsquo;s a measurement problem. And measurement problems are&nbsp;solvable.</p>
+      <a href="mailto:keegan@metabolicoffices.com" class="cta-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+        Email Keegan
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>&copy; 2026 Metabolic Offices</span>
+</footer>
+
+<script>
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
